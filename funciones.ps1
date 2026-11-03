@@ -1,3 +1,6 @@
+<# Biblioteca que contiene funciones en powershell 
+   que ayudan en el desarrollo de aplicaciones.
+#>
 # Recargar funciones personalizadas
 function cargar {
     . "C:\Users\alvin\Desktop\cmd-shell\funciones.ps1"
@@ -72,7 +75,7 @@ function subirProyecto {
         [string]$url
     )
     git add .
-    git commit -m "primer proyecto"
+    git commit -m "proyecto inicial"
     git remote add origin $url
     $master = git branch --show-current
     if($master -eq "master") {
@@ -88,7 +91,7 @@ function rama {
     git branch
 }
 function rebase {
-     $rama = git branch --show-current
+    $rama = git branch --show-current
     if($rama -eq "main"){
         git pull --rebase origin main
     }
@@ -96,3 +99,35 @@ function rebase {
         git pull --rebase origin master
     }
 }
+# funcion personal para iniciar mi servidor local.
+function laragon{
+    Start-Process "C:\laragon\laragon.exe"
+}
+
+# funciones para trabajar base de datos desde el powershell
+$global:mysql = "C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysql.exe"
+function showdb{
+    & $global:mysql -u root -e "SHOW DATABASES;"
+}
+# modo de usar showtable nombre_db
+function showtable{
+    param([string]$base)
+     & $Global:mysql -u root $base -e "SHOW TABLES;"
+}
+# funcion para seleccion una tabla 
+function verdatos{
+    param(
+        [string]$base,
+        [string]$table
+        )
+    & $Global:mysql -u root $base -e "SELECT * FROM $table;"
+}
+function createdb {
+param([string]$db)
+& $Global:mysql -u root -e "CREATE DATABASE $db;"
+}
+function dropdb{
+    param([string]$db)
+& $Global:mysql -u root -e "DROP DATABASE $db;"
+}
+
