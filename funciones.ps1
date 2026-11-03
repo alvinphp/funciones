@@ -68,5 +68,16 @@ function subirProyecto {
     git add .
     git commit -m "primer proyecto"
     git remote add origin $url
+    $master = git branch --show-current
+    if($master -eq "master") {
+    git push -u origin master
+    }
+    else{
     git push -u origin main
+
+    }
+    
+}
+function rama {
+    git branch
 }
