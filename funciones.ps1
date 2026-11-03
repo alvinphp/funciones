@@ -87,4 +87,12 @@ function subirProyecto {
 function rama {
     git branch
 }
-
+function rebase {
+     $rama = git branch --show-current
+    if($rama -eq "main"){
+        git pull --rebase origin main
+    }
+    else{
+        git pull --rebase origin master
+    }
+}
