@@ -48,7 +48,4 @@ Para que los comandos de análisis y corrección funcionen correctamente, debes 
 
 **Importante:** PHPCS, PHPCBF y WordPress Coding Standards deben estar instalados globalmente mediante Composer. Además, las rutas de sus ejecutables deben estar correctamente configuradas en el archivo `funciones.ps1`.
 
-## Autor
-
-Alvin Gil
 
