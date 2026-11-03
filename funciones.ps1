@@ -53,7 +53,13 @@ function commit {
 }
 
 function subir{
-    git push origin main
+    $rama = git branch --show-current
+    if($rama -eq "main"){
+        git push origin main
+    }
+    else{
+        git push origin master
+    }
 }
 
 function actualizar{
