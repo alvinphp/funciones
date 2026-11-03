@@ -8,7 +8,7 @@ function limpiar {
     Clear-Host
 }
 
-# Revisar estándares de WordPress
+# Revisar estándares de WordPress phpcs archivo.php
 function phpcs {
     param (
         [Parameter(Mandatory = $true)]
@@ -25,7 +25,7 @@ function phpcs {
     }
 }
 
-# Corregir automáticamente estándares de WordPress
+# Corregir automáticamente estándares de WordPress phpcsbf archivo.php
 function phpcbf {
     param (
         [Parameter(Mandatory = $true)]
@@ -42,7 +42,7 @@ function phpcbf {
     }
 }
 
-# Crear commit en Git
+# Crear commit en Git uso commit "mensaje"
 function commit {
     param (
         [Parameter(Mandatory = $true, Position = 0)]
@@ -59,7 +59,7 @@ function subir{
 function actualizar{
     git pull origin main
 }
-
+# modo de uso subirproyecto "ruta/index.php"
 function subirProyecto {
      param (
         [Parameter(Mandatory = $true, Position = 0)]
