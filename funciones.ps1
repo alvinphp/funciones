@@ -133,3 +133,7 @@ function dropdb{
 function webtest{
     Start-Process "http://localhost/wordpress7/wordpress/index.php/2026/08/16/hola-mundo/"
 }
+function documentacion{
+    Start-Process "file:///C:/Users/alvin/Desktop/funciones/documentacion.html"
+}
+
