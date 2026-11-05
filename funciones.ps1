@@ -136,7 +136,15 @@ function webtest{
 function documentacion{
     Start-Process "file:///C:/Users/alvin/Desktop/funciones/documentacion.html"
 }
-function funciones{
-    Select-String -Path ".\funciones.ps1" -Pattern "^\s*function\s+[\w-]+"
+function funciones {
+    $archivo = "$PSScriptRoot\funciones.ps1"
+    if (-not (Test-Path $archivo)) {
+        Write-Error "No se encontró $archivo"
+        return
+    }
+
+    Select-String -Path $archivo -Pattern '^\s*function\s+([\w-]+)' |
+        ForEach-Object { $_.Matches.Groups[1].Value }
 }
+
 
