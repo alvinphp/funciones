@@ -136,4 +136,7 @@ function webtest{
 function documentacion{
     Start-Process "file:///C:/Users/alvin/Desktop/funciones/documentacion.html"
 }
+function funciones{
+    Select-String -Path ".\funciones.ps1" -Pattern "^\s*function\s+[\w-]+"
+}
 
